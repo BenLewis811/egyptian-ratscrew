@@ -1,0 +1,100 @@
+class shuffle
+    {
+
+        private string[,] card = new string[2, 52];
+        private int[] used = new int[52];
+        public shuffle()
+        {
+            for (int a = 0; a < 52; a++)
+            {
+                used[a] = 54;
+            }
+            int random = 0;
+            int count = 0;
+            Random rand = new Random();
+            card[0,0] = "Ace of Spades";
+            card[0,1] = "2 of Spades";
+            card[0,2] = "3 of Spades";
+            card[0,3] = "4 of Spades";
+            card[0,4] = "5 of Spades";
+            card[0,5] = "6 of Spades";
+            card[0,6] = "7 of Spades";
+            card[0,7] = "8 of Spades";
+            card[0,8] = "9 of Spades";
+            card[0,9] = "10 of Spades";
+            card[0,10] = "Jack of Spades";
+            card[0,11] = "Queen of Spades";
+            card[0,12] = "King of Spades";
+            card[0,13] = "Ace of Hearts";
+            card[0,14] = "2 of Hearts";
+            card[0,15] = "3 of Hearts";
+            card[0,16] = "4 of Hearts";
+            card[0,17] = "5 of Hearts";
+            card[0,18] = "6 of Hearts";
+            card[0,19] = "7 of Hearts";
+            card[0,20] = "8 of Hearts";
+            card[0,21] = "9 of Hearts";
+            card[0,22] = "10 of Hearts";
+            card[0,23] = "Jack of Hearts";
+            card[0,24] = "Queen of Hearts";
+            card[0,25] = "King of Hearts";
+            card[0,26] = "Ace of Diamonds";
+            card[0,27] = "2 of Diamonds";
+            card[0,28] = "3 of Diamonds";
+            card[0,29] = "4 of Diamonds";
+            card[0,30] = "5 of Diamonds";
+            card[0,31] = "6 of Diamonds";
+            card[0,32] = "7 of Diamonds";
+            card[0,33] = "8 of Diamonds";
+            card[0,34] = "9 of Diamonds";
+            card[0,35] = "10 of Diamonds";
+            card[0,36] = "Jack of Diamonds";
+            card[0,37] = "Queen of Diamonds";
+            card[0,38] = "King of Diamonds";
+            card[0,39] = "Ace of Clubs";
+            card[0,40] = "2 of Clubs";
+            card[0,41] = "3 of Clubs";
+            card[0,42] = "4 of Clubs";
+            card[0,43] = "5 of Clubs";
+            card[0,44] = "6 of Clubs";
+            card[0,45] = "7 of Clubs";
+            card[0,46] = "8 of Clubs";
+            card[0,47] = "9 of Clubs";
+            card[0,48] = "10 of Clubs";
+            card[0,49] = "Jack of Clubs";
+            card[0,50] = "Queen of Clubs";
+            card[0,51] = "King of Clubs";
+
+            for (int i = 0; i < 52; i++)
+            {
+
+            failure:;
+                random = Convert.ToInt32(rand.Next(52));
+                foreach (int xy in used)
+                {
+                
+
+                    if (xy == random)
+                    {
+                        goto failure;
+                    }
+               
+                        
+                }
+                used[count] = random;
+                count++;
+                
+                card[1, random] = card[0, i]; 
+            }
+
+        }
+        public string[] shuffleDeck()
+        {
+            string[] x = new string[52];
+            for (int i = 0; i < 52; i++)
+            {
+                x[i] = card[1, i];
+            }
+            return x;
+        }
+    }
